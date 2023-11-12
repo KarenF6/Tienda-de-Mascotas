@@ -33,7 +33,9 @@ function ready(){
     for(var i=0; i <botonesAgregarAlCarrito.length;i++){
         var button = botonesAgregarAlCarrito[i];
         button.addEventListener('click', agregarAlCarritoClicked);
-
+    }
+    //Agregar funcionalidad al boton pagar
+    document.getElementsByClassName('btn-pagar')[0].addEventListener('click',pagarClicked);
 }
 
 function EliminarItemCarrito(event){
@@ -162,7 +164,17 @@ botonSumarCantidad.addEventListener('click', sumarCantidad);
 
 //Agregamos la funcionalidad de restal del nuevo item 
 var botonRestarrCantidad = item.getElementsByClassName('restar-cantidad')[0];
-botonRestarCantidad.addEventListener('click', restarCantidad);
+botonRestarrCantidad.addEventListener('click', restarCantidad);
 
 
+}
+function pagarClicked(event){
+    alert("Gracias por tu compra");
+    //Elimino todos los elemetos del carrito
+    var carritoItems = document.getElementsByClassName('carrito-items')[0];
+    while(carritoItems.hasChildNodes()){
+        carritoItems.removeChild(carritoItems.firstChild);
+    }
+
+    actualizarTotalCarrito();
 }
