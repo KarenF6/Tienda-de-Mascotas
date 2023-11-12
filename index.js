@@ -35,7 +35,7 @@ function ready(){
         button.addEventListener('click', agregarAlCarritoClicked);
     }
     //Agregar funcionalidad al boton pagar
-    document.getElementsByClassName('btn-pagar')[0].addEventListener('click',pagarClicked);
+    document.getElementsByClassName('btn-pagar')[0].addEventListener('click',pagarClicked)
 }
 
 function EliminarItemCarrito(event){
@@ -63,7 +63,7 @@ function actualizarTotalCarrito(){
         console.log(precio);
         var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
         var cantidad = cantidadItem.value;
-        console.log(cantidad)
+        console.log(cantidad);
         total = total + (precio * cantidad);
     }
     total = Math.round(total*100)/100;
@@ -72,9 +72,10 @@ function actualizarTotalCarrito(){
 
 function ocultarCarrito(){
     var carritoItems = document.getElementsByClassName('carrito-items')[0];
-    if(carritoItems.childElementCount ==0){
+    if(carritoItems.childElementCount==0){
         var carrito = document.getElementsByClassName('carrito')[0];
-        carrito.computedStyleMap.opacity='0';
+        carrito.style.marginRight = '-100%'
+        carrito.style.opacity='0';
         carritoVisible = false;
 
 
@@ -135,7 +136,7 @@ function agregarItemCarrito(titulo, precio, imagenSrc){
 
     var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for(var i=0; i < nombresItemsCarrito.length;i++){
-        if(nombresItemsCarrito[i].innerText=titulo){
+        if(nombresItemsCarrito[i].innerText==titulo){
             alert("El item ya se escuentra en el carrito");
             return;
         }
@@ -156,10 +157,10 @@ function agregarItemCarrito(titulo, precio, imagenSrc){
     <span class="btn-eliminar">
         <i class="fa-solid fa-trash"></i>
     </span>
-</div> 
+    </div> 
     `
-item.innerHTML = itemCarritoContenido;
-itemsCarrito.append(item);
+    item.innerHTML = itemCarritoContenido;
+    itemsCarrito.append(item);
 
 //agregamos la funcionalidad eliminar del nunevo item
 item.getElementsByClassName('btn-eliminar')[0].addEventListener('click', EliminarItemCarrito);
@@ -184,13 +185,13 @@ function pagarClicked(event){
 
     actualizarTotalCarrito();
     //Funcion que hace ocultar al carrito
-ocultarCarrito();
+    ocultarCarrito();
 
 }
 
 function HacerVisibleCarrito(){
     carritoVisible = true;
-    var carrito= document.getElementsByClassName('carrito')[0];
+    var carrito = document.getElementsByClassName('carrito')[0];
     carrito.style.marginRight = '0';
     carrito.style.opacity = '1';
 
