@@ -87,5 +87,19 @@ header h1{
     position: sticky !important;
     top: 0;
     transition: .3s;
-    
+
 }
+.carrito .header-carrito{
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+.carrito .carrito-item{
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #666;
+    padding: 20px;
+}
+
