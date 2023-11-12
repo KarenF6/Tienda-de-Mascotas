@@ -9,13 +9,31 @@ if(document.readyState=='loading'){
 
 function ready(){
     var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
-    for(vari=0; i< botonesEliminarItem.length;i++){
+    for(var i=0; i< botonesEliminarItem.length;i++){
         var button = botonesEliminarItem[i];
         button.addEventListener('click', EliminarItemCarrito);
     }
 
     //agrego funcionalidad al boton sumar cantidad
-    
+    var botonesSumarcantidad = document.getElementsByClassName('sumar-cantidad');
+    for(var i=0; i <botonesSumarcantidad.length;i++){
+        var button = botonesSumarcantidad[i];
+        button.addEventListener('click', sumarCantidad);
+    }
+
+    //agrego funcionalidad al boton restar cantidad
+    var botonesRestarcrantidad = document.getElementsByClassName('restar-cantidad');
+    for(var i=0; i <botonesRestarcrantidad.length;i++){
+        var button = botonesRestarcrantidad[i];
+        button.addEventListener('click', restarCantidad);
+    }
+
+    //Agrego funcionalidad a los botones Agregras al Carrito
+    var botonesAgregarAlCarrito = document.getElementsByClassName('boton-item');
+    for(var i=0; i <botonesAgregarAlCarrito.length;i++){
+        var button = botonesAgregarAlCarrito[i];
+        button.addEventListener('click', agregarAlCarritoClicked);
+
 }
 
 function EliminarItemCarrito(event){
@@ -61,4 +79,58 @@ function ocultarCarrito(){
         var items = document.getElementsByClassName('contenedor-items')[0];
         items.Style.width = '100%';
     }
+}
+//Aumento en uno la cantidad del elemento seleccionado 
+function sumarCantidad(event){
+    var buttonClicked = event.target;
+    var selector = buttonClicked.parentElement;
+    var cantidadActual = selector.getElementsByClassName('carrito-item-cantidad')[0].value;
+    console.log(cantidadActual);
+    cantidadActual++;
+    selector.getElementsByClassName('carrito-item-cantidad')[0].value = cantidadActual;
+    //Actualizamos el total
+    actualizarTotalCarrito();
+
+
+}
+function restarCantidad(event){
+    var buttonClicked = event.target;
+    var selector = buttonClicked.parentElement;
+    var cantidadActual = selector.getElementsByClassName('carrito-item-cantidad')[0].value;
+    console.log(cantidadActual);
+    cantidadActual--;
+    //controlamos que no sea menor que 1
+    if(cantidadActual>=1){
+        selector.getElementsByClassName('carrito-item-cantidad')[0].value = cantidadActual;
+    //Actualizamos el total
+    actualizarTotalCarrito();
+    }
+    
+}
+
+function agregarAlCarritoClicked(event){
+    var button = event.target;
+    var item =button.parentElement;
+    var titulo = item.getElementsByClassName('titulo-item')[0].innerText;
+    console.log(titulo);
+    var precio = item.getElementsByClassName('pecio-item')[0].innerText;
+    var imagenSrc = item.getElementsByClassName('img-item')[0].src;
+    console.log(imagenSrc);
+
+    //La siguiente funcion agrega el elemento al carrito.
+    agregarItemCarrito(titulo, precio, imagenSrc);
+}
+function agregarItemCarrito(titulo, precio, imagenSrc){
+    var item = document.createElement('div');
+    item.classList.add = 'item';
+    var itemsCarrito = document.getElementsByClassName('carrito-items')[0];
+
+    var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
+    for(var i=0; i < nombresItemsCarrito.length;i++){
+        if(nombresItemsCarrito[i].innerText=titulo){
+            alert("El item ya se escuentra en el carrito");
+            return;
+        }
+    }
+    
 }
