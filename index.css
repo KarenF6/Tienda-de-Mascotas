@@ -159,7 +159,7 @@ header h1{
     z-index: 20;
 }
 .carrito .carrito-item .btn-eliminar{
-    pointer-events: none;
+    pointer-events:visible;
 }
 .carrito-total{
     background-color: #f3f3f3;
