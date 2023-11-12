@@ -152,4 +152,17 @@ function agregarItemCarrito(titulo, precio, imagenSrc){
     `
 item.innerHTML = itemCarritoContenido;
 itemsCarrito.append(item);
+
+//agregamos la funcionalidad eliminar del nunevo item
+item.getElementsByClassName('btn-eliminar')[0].addEventListener('click', EliminarItemCarrito);
+
+//Agregamos la funcionalidad de sumar del nuevo item
+var botonSumarCantidad = item.getElementsByClassName('sumar-cantidad')[0];
+botonSumarCantidad.addEventListener('click', sumarCantidad);
+
+//Agregamos la funcionalidad de restal del nuevo item 
+var botonRestarrCantidad = item.getElementsByClassName('restar-cantidad')[0];
+botonRestarCantidad.addEventListener('click', restarCantidad);
+
+
 }
