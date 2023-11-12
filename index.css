@@ -35,7 +35,7 @@ header h1{
     grid-gap: 30px;
     grid-row-gap: 30px;
     width: 100%;
-    transition: 3s;
+    transition: .3s;
 
 }
 .contenedor .contenedor-items .item{
