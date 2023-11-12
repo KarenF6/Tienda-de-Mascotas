@@ -133,4 +133,23 @@ function agregarItemCarrito(titulo, precio, imagenSrc){
         }
     }
     
+    var itemCarritoContenido =`
+    <div class="carrito-item">
+    <img src="img/ComidaparaPerroPedigreeAdulto.webp" alt="" width="80px">
+    <div class="carrito-item-detalles">
+        <span class="carrito-item-titulo">Alimento para perro Pedigree 7Kg</span>
+        <div class="selector-cantidad">
+            <i class="fa-solid fa-minus restar-cantidad"></i>
+            <input type="text" value="1" class="carrito-item-cantidad" disabled>
+            <i class="fa-solid fa-plus sumar-cantidad"></i>
+        </div>
+        <span class="carrito-item-precio">$68.900</span>
+    </div>
+    <span class="btn-eliminar">
+        <i class="fa-solid fa-trash"></i>
+    </span>
+</div> 
+    `
+item.innerHTML = itemCarritoContenido;
+itemsCarrito.append(item);
 }
