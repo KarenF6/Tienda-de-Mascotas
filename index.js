@@ -1,3 +1,8 @@
+//INTEGRANTES:
+//Karen Dayana Fuentes Mendoza
+//Cesar Luis Alean Hernandez
+
+
 // Variable que mantiene el estado del carrito
 var carritoVisible = false;
 
