@@ -3,7 +3,6 @@ Karen Dayana Fuentes Mendoza
 Cesar Luis Alean Hernandez
 */
 
-
 /* importo las fuentes */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
@@ -94,8 +93,8 @@ header h1{
     position: sticky !important;
     top: 0;
     transition: .3s;
-    opacity: 0;
-    margin-right: -100%;
+    /*opacity: 0;*/
+    /*margin-right: -100%;*/
 }
 .carrito .header-carrito{
     background-color: black;
@@ -166,8 +165,8 @@ header h1{
     background: transparent;
     z-index: 20;
 }
-.carrito .carrito-item .btn-eliminar{
-    pointer-events:visible;
+.carrito .carrito-item .btn-eliminar i{
+    pointer-events:none;
 }
 .carrito-total{
     background-color: #f3f3f3;
@@ -194,7 +193,7 @@ header h1{
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 3s;
+    transition: 2s;
 }
 .carrito-total .btn-pagar:hover{
     scale: 1.05;
@@ -205,7 +204,7 @@ header h1{
         display: block;
 
     }
-    .carrito-item{
+    .contenedor-items{
         width: 100% !important;
     }
 
